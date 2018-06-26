@@ -1,0 +1,16 @@
+{
+  "name": "unchecked",
+  "version": "0.0.1",
+  "description": "A property based test executor",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "test",
+    "generators",
+    "property based"
+  ],
+  "author": "Sune Simonsen",
+  "license": "MIT"
+}
