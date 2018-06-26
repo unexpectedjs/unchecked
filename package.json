@@ -1,6 +1,6 @@
 {
   "name": "unchecked",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A property based test executor",
   "main": "index.js",
   "scripts": {
