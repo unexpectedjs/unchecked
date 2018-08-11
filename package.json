@@ -1,16 +1,56 @@
 {
   "name": "unchecked",
-  "version": "0.1.0",
   "description": "A property based test executor",
-  "main": "index.js",
+  "license": "MIT",
+  "author": "Sune Simonsen",
+  "version": "0.1.0",
+  "main": "./lib/index.js",
   "scripts": {
+    "build": "babel --out-dir lib --quiet src",
+    "lint": "eslint .",
+    "lint-staged": "lint-staged",
+    "prepare": "npm run build",
     "test": "mocha"
   },
+  "dependencies": {
+    "unexpected": "^10.38.0",
+    "unexpected-check": "^2.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "6.26.0",
+    "babel-plugin-transform-object-rest-spread": "6.26.0",
+    "babel-preset-env": "1.7.0",
+    "chance-generators": "3.0.0",
+    "eslint": "4.17.0",
+    "eslint-config-pretty-standard": "1.2.0",
+    "eslint-plugin-import": "2.8.0",
+    "eslint-plugin-prettier": "2.6.0",
+    "lint-staged": "4.0.3",
+    "mocha": "5.2.0",
+    "pre-commit": "1.2.2",
+    "prettier": "1.14.0",
+    "prettier-package-json": "1.6.0"
+  },
   "keywords": [
-    "test",
+    "generative testing",
     "generators",
-    "property based"
+    "property based testing",
+    "quick check",
+    "test",
+    "testing"
   ],
-  "author": "Sune Simonsen",
-  "license": "MIT"
+  "lint-staged": {
+    "linters": {
+      "*.js": [
+        "eslint",
+        "prettier --write",
+        "git add"
+      ],
+      "package.json": [
+        "prettier-package-json --write",
+        "git add"
+      ]
+    }
+  },
+  "pre-commit": "lint-staged"
 }
