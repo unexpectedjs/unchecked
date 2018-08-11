@@ -1,5 +1,5 @@
 const expect = require("unexpected");
-const { array, integer } = require("chance-generators");
+const { array, integer, string } = require("chance-generators");
 const { forall } = require("../src/");
 const assert = require("assert");
 const util = require("util");
@@ -34,10 +34,31 @@ describe("forall", () => {
   });
 
   it("succeeds when the body does not throw", () => {
-    return forall(array(integer), numbers => {
+    forall(array(integer), numbers => {
       const sorted = sort(numbers, (a, b) => a - b);
 
       assert(isSorted(sorted), `expected ${util.inspect(sorted)} to be sorted`);
     });
+  });
+
+  it("shows a diff if actual and expected is defined on the error", () => {
+    expect(
+      () => {
+        forall(string({ min: 3 }), string({ min: 3 }), (a, b) => {
+          assert.equal(a, b);
+        });
+      },
+      "to throw",
+      "Found an error after 1 iteration, 7 additional errors found.\n" +
+        "counterexample:\n" +
+        "\n" +
+        "  Generated input: 'B8T', 'lnJ'\n" +
+        "  with: string({ min: 3, max: 30 }), string({ min: 3, max: 30 })\n" +
+        "\n" +
+        "  'B8T' == 'lnJ'\n" +
+        "\n" +
+        "  -B8T\n" +
+        "  +lnJ"
+    );
   });
 });

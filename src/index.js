@@ -1,4 +1,6 @@
-const expect = require("unexpected")
+const expect = require("unexpected");
+
+expect
   .addType({
     base: "Error",
     name: "AssertionError",
@@ -6,7 +8,17 @@ const expect = require("unexpected")
       err &&
       typeof err === "object" &&
       err.constructor.name === "AssertionError",
-    inspect: (value, depth, output, inspect) => output.error(value.message)
+    inspect: (value, depth, output, inspect) => {
+      output.error(value.message);
+
+      if ("actual" in value && "expected" in value) {
+        const diff = expect.diff(value.actual, value.expected, output.clone());
+
+        if (diff) {
+          output.nl(2).append(diff);
+        }
+      }
+    }
   })
   .use(require("unexpected-check"));
 
