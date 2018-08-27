@@ -61,4 +61,35 @@ describe("forall", () => {
         "  +lnJ"
     );
   });
+
+  it("supports asynchronous tests", () =>
+    expect(
+      () =>
+        forall(
+          string({ min: 3 }),
+          string({ min: 3 }),
+          (a, b) =>
+            new Promise((resolve, reject) => {
+              setTimeout(() => {
+                try {
+                  assert.equal(a, b);
+                  resolve();
+                } catch (e) {
+                  reject(e);
+                }
+              }, 1);
+            })
+        ),
+      "to error",
+      "Found an error after 1 iteration, 14 additional errors found.\n" +
+        "counterexample:\n" +
+        "\n" +
+        "  Generated input: 'zsv', 'Dmv'\n" +
+        "  with: string({ min: 3, max: 30 }), string({ min: 3, max: 30 })\n" +
+        "\n" +
+        "  'zsv' == 'Dmv'\n" +
+        "\n" +
+        "  -zsv\n" +
+        "  +Dmv"
+    ));
 });
