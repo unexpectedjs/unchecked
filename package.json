@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "lint-staged": "lint-staged",
     "prepare": "npm run build",
-    "test": "mocha src README.md"
+    "test": "mocha test README.md"
   },
   "dependencies": {
     "unexpected": "^10.38.0",
