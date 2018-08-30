@@ -30,6 +30,13 @@ const forall = (...args) => {
     options = args.pop();
   }
 
+  if (
+    typeof options.maxIterations !== "number" &&
+    process.env.UNCHECKED_MAX_ITERATIONS
+  ) {
+    options.maxIterations = Number(process.env.UNCHECKED_MAX_ITERATIONS);
+  }
+
   return expect(test, "to be valid for all", {
     ...options,
     generators: args
@@ -37,5 +44,11 @@ const forall = (...args) => {
 };
 
 module.exports = {
+  get preferredWidth() {
+    return expect.output.preferredWidth;
+  },
+  set preferredWidth(value) {
+    expect.output.preferredWidth = value;
+  },
   forall
 };

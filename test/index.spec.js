@@ -16,6 +16,14 @@ describe("forall", () => {
         forall(array(integer), numbers => {
           const sorted = sort(numbers);
 
+          assert.equal(
+            sorted.length,
+            numbers.length,
+            `expected ${util.inspect(
+              sorted
+            )} to have same length as ${util.inspect(numbers)}`
+          );
+
           assert(
             isSorted(sorted),
             `expected ${util.inspect(sorted)} to be sorted`
@@ -36,6 +44,14 @@ describe("forall", () => {
   it("succeeds when the body does not throw", () => {
     forall(array(integer), numbers => {
       const sorted = sort(numbers, (a, b) => a - b);
+
+      assert.equal(
+        sorted.length,
+        numbers.length,
+        `expected ${util.inspect(sorted)} to have same length as ${util.inspect(
+          numbers
+        )}`
+      );
 
       assert(isSorted(sorted), `expected ${util.inspect(sorted)} to be sorted`);
     });

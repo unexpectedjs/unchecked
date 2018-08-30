@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "lint-staged": "lint-staged",
     "prepare": "npm run build",
-    "test": "mocha"
+    "test": "mocha src README.md"
   },
   "dependencies": {
     "unexpected": "^10.38.0",
@@ -25,11 +25,13 @@
     "eslint-config-pretty-standard": "1.2.0",
     "eslint-plugin-import": "2.8.0",
     "eslint-plugin-prettier": "2.6.0",
+    "get-stream": "4.0.0",
     "lint-staged": "4.0.3",
     "mocha": "5.2.0",
     "pre-commit": "1.2.2",
     "prettier": "1.14.0",
-    "prettier-package-json": "1.6.0"
+    "prettier-package-json": "1.6.0",
+    "unexpected-markdown": "1.7.4"
   },
   "keywords": [
     "generative testing",
