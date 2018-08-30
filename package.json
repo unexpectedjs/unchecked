@@ -4,7 +4,7 @@
   "license": "MIT",
   "author": "Sune Simonsen",
   "repository": "git://github.com/unexpectedjs/unchecked.git",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "main": "./lib/index.js",
   "scripts": {
     "build": "babel --out-dir lib --quiet src",
