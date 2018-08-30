@@ -1,5 +1,9 @@
 # Unchecked
 
+[![NPM version](https://badge.fury.io/js/unchecked.svg)](http://badge.fury.io/js/unchecked)
+[![Build Status](https://travis-ci.org/unexpectedjs/unchecked.svg?branch=master)](https://travis-ci.org/unexpectedjs/unchecked)
+[![Dependency Status](https://david-dm.org/unexpectedjs/unchecked.svg)](https://david-dm.org/unexpectedjs/unchecked)
+
 Property based testing made easy!
 
 This library provides a function that you can use for property based testing in
