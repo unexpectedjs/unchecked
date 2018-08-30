@@ -21,7 +21,7 @@
     "babel-cli": "6.26.0",
     "babel-plugin-transform-object-rest-spread": "6.26.0",
     "babel-preset-env": "1.7.0",
-    "chance-generators": "3.0.0",
+    "chance-generators": "3.0.1",
     "eslint": "4.17.0",
     "eslint-config-pretty-standard": "1.2.0",
     "eslint-plugin-import": "2.8.0",
