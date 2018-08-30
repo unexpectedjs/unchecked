@@ -3,7 +3,7 @@
   "description": "A property based test executor",
   "license": "MIT",
   "author": "Sune Simonsen",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "main": "./lib/index.js",
   "scripts": {
     "build": "babel --out-dir lib --quiet src",
