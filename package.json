@@ -3,6 +3,7 @@
   "description": "A property based test executor",
   "license": "MIT",
   "author": "Sune Simonsen",
+  "repository": "git://github.com/unexpectedjs/unchecked.git",
   "version": "1.0.0",
   "main": "./lib/index.js",
   "scripts": {
