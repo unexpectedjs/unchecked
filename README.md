@@ -181,7 +181,7 @@ The source for this plugin can be found on
 
 ## MIT License
 
-Copyright (c) 2016 Sune Simonsen <sune@we-knowhow.dk>
+Copyright (c) 2018 Sune Simonsen <sune@we-knowhow.dk>
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
