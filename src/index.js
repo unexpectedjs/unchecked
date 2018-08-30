@@ -7,6 +7,7 @@ expect
     identify: err =>
       err &&
       typeof err === "object" &&
+      err.constructor &&
       err.constructor.name === "AssertionError",
     inspect: (value, depth, output, inspect) => {
       output.error(value.message);
