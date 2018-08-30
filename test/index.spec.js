@@ -3,6 +3,7 @@ const { array, integer, string } = require("chance-generators");
 const { forall } = require("../src/");
 const assert = require("assert");
 const util = require("util");
+const chanceCache = require("chance-generators/lib/chanceCache");
 
 const isSorted = array =>
   array.every((x, i) => array.slice(i).every(y => x <= y));
@@ -10,6 +11,10 @@ const isSorted = array =>
 const sort = (arr, cmp) => [].concat(arr).sort(cmp);
 
 describe("forall", () => {
+  afterEach(() => {
+    chanceCache.clear();
+  });
+
   it("fails with an informative error message", () => {
     expect(
       () => {
@@ -65,16 +70,16 @@ describe("forall", () => {
         });
       },
       "to throw",
-      "Found an error after 1 iteration, 7 additional errors found.\n" +
+      "Found an error after 1 iteration, 12 additional errors found.\n" +
         "counterexample:\n" +
         "\n" +
-        "  Generated input: 'B8T', 'lnJ'\n" +
+        "  Generated input: 'lH#', ')1n'\n" +
         "  with: string({ min: 3, max: 30 }), string({ min: 3, max: 30 })\n" +
         "\n" +
-        "  'B8T' == 'lnJ'\n" +
+        "  'lH#' == ')1n'\n" +
         "\n" +
-        "  -B8T\n" +
-        "  +lnJ"
+        "  -lH#\n" +
+        "  +)1n"
     );
   });
 
@@ -97,15 +102,15 @@ describe("forall", () => {
             })
         ),
       "to error",
-      "Found an error after 1 iteration, 14 additional errors found.\n" +
+      "Found an error after 1 iteration, 12 additional errors found.\n" +
         "counterexample:\n" +
         "\n" +
-        "  Generated input: 'zsv', 'Dmv'\n" +
+        "  Generated input: 'lH#', ')1n'\n" +
         "  with: string({ min: 3, max: 30 }), string({ min: 3, max: 30 })\n" +
         "\n" +
-        "  'zsv' == 'Dmv'\n" +
+        "  'lH#' == ')1n'\n" +
         "\n" +
-        "  -zsv\n" +
-        "  +Dmv"
+        "  -lH#\n" +
+        "  +)1n"
     ));
 });
