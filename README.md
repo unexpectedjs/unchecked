@@ -177,7 +177,7 @@ a bit faster.
 ## Source
 
 The source for this plugin can be found on
-[Github](https://github.com/unexpectedjs/unexpected-check).
+[Github](https://github.com/unexpectedjs/unchecked).
 
 ## MIT License
 
