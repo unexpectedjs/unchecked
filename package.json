@@ -24,7 +24,7 @@
     "chance-generators": "3.3.0",
     "eslint": "4.17.0",
     "eslint-config-pretty-standard": "2.0.0",
-    "eslint-plugin-import": "2.8.0",
+    "eslint-plugin-import": "2.14.0",
     "eslint-plugin-prettier": "3.0.0",
     "get-stream": "4.0.0",
     "lint-staged": "8.0.3",
