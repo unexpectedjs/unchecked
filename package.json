@@ -23,7 +23,7 @@
     "babel-preset-env": "1.7.0",
     "chance-generators": "3.0.1",
     "eslint": "4.17.0",
-    "eslint-config-pretty-standard": "1.2.0",
+    "eslint-config-pretty-standard": "2.0.0",
     "eslint-plugin-import": "2.8.0",
     "eslint-plugin-prettier": "2.6.0",
     "get-stream": "4.0.0",
