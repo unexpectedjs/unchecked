@@ -14,7 +14,7 @@
     "test": "mocha test README.md"
   },
   "dependencies": {
-    "unexpected": "^10.38.0",
+    "unexpected": "^11.0.0",
     "unexpected-check": "^2.0.0"
   },
   "devDependencies": {
