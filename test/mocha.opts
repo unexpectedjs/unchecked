@@ -2,4 +2,4 @@
 --recursive
 --check-leaks
 --require ./bootstrap-unexpected-markdown.js
---compilers md:unexpected-markdown
+--require unexpected-markdown
