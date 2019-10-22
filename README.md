@@ -31,7 +31,8 @@ $ npm install --save-dev unchecked chance-generators
 
 and require the forall function from `unchecked`:
 
-```js#evaluate:false
+<!--unexpected-markdown evaluate:false-->
+```js
 const { forall } = require('unchecked');
 ```
 
@@ -109,7 +110,8 @@ forall(array(integer), numbers => {
 Support for asynchronous testing by returning a promise from the subject
 function:
 
-```js#async:true
+<!--unexpected-markdown async:true-->
+```js
 const { PassThrough } = require('stream');
 const zlib = require('zlib');
 const getStream = require('get-stream');
