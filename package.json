@@ -43,17 +43,15 @@
     "testing"
   ],
   "lint-staged": {
-    "linters": {
-      "*.js": [
-        "eslint",
-        "prettier --write",
-        "git add"
-      ],
-      "package.json": [
-        "prettier-package-json --write",
-        "git add"
-      ]
-    }
+    "*.js": [
+      "eslint",
+      "prettier --write",
+      "git add"
+    ],
+    "package.json": [
+      "prettier-package-json --write",
+      "git add"
+    ]
   },
   "pre-commit": "lint-staged"
 }
