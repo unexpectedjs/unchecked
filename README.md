@@ -79,13 +79,13 @@ on converting items to strings and comparing them. So you will get the following
 error:
 
 ```output
-Found an error after 1 iteration, 123 additional errors found.
+Found an error after 1 iteration, 58 additional errors found.
 counterexample:
 
-  Generated input: [ -2, -1 ]
+  Generated input: [ 10, 2 ]
   with: array({ itemGenerator: integer, min: 0, max: 30 })
 
-  expected [ -1, -2 ] to be sorted
+  expected [ 10, 2 ] to be sorted
 ```
 
 If we wanted to fix the problem, we would need to use a comparison function:
@@ -150,7 +150,7 @@ forall(
   {
     maxIterations: 100,
     maxErrorIterations: 100,
-    maxErrors: 5
+    maxErrors: 10
   },
   numbers => {
     const sorted = sort(numbers);
@@ -164,13 +164,13 @@ forall(
 ```
 
 ```output
-Found an error after 1 iteration, 4 additional errors found.
+Found an error after 1 iteration, 9 additional errors found.
 counterexample:
 
-  Generated input: [ 1132805360719946, 857411803781413, 608993760810884 ]
+  Generated input: [ 52477443531195, 5636349332, 5783279309 ]
   with: array({ itemGenerator: integer, min: 0, max: 30 })
 
-  expected [ 1132805360719946, 608993760810884, 857411803781413 ] to be sorted
+  expected [ 52477443531195, 5636349332, 5783279309 ] to be sorted
 ```
 
 As you can see the input shrinking is worse with less iterations, but it will be

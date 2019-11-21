@@ -3,7 +3,6 @@ const { array, integer, string } = require("chance-generators");
 const { forall } = require("../src/");
 const assert = require("assert");
 const util = require("util");
-const chanceCache = require("chance-generators/lib/chanceCache");
 
 const isSorted = array =>
   array.every((x, i) => array.slice(i).every(y => x <= y));
@@ -11,10 +10,6 @@ const isSorted = array =>
 const sort = (arr, cmp) => [].concat(arr).sort(cmp);
 
 describe("forall", () => {
-  afterEach(() => {
-    chanceCache.clear();
-  });
-
   it("fails with an informative error message", () => {
     expect(
       () => {
@@ -36,13 +31,13 @@ describe("forall", () => {
         });
       },
       "to throw",
-      "Found an error after 1 iteration, 123 additional errors found.\n" +
+      "Found an error after 1 iteration, 58 additional errors found.\n" +
         "counterexample:\n" +
         "\n" +
-        "  Generated input: [ -2, -1 ]\n" +
+        "  Generated input: [ 10, 2 ]\n" +
         "  with: array({ itemGenerator: integer, min: 0, max: 30 })\n" +
         "\n" +
-        "  expected [ -1, -2 ] to be sorted"
+        "  expected [ 10, 2 ] to be sorted"
     );
   });
 
@@ -70,16 +65,13 @@ describe("forall", () => {
         });
       },
       "to throw",
-      "Found an error after 1 iteration, 12 additional errors found.\n" +
+      "Found an error after 1 iteration, 10 additional errors found.\n" +
         "counterexample:\n" +
         "\n" +
-        "  Generated input: 'lH#', ')1n'\n" +
+        "  Generated input: '(n2', 'hrm'\n" +
         "  with: string({ min: 3, max: 30 }), string({ min: 3, max: 30 })\n" +
         "\n" +
-        "  'lH#' == ')1n'\n" +
-        "\n" +
-        "  -lH#\n" +
-        "  +)1n"
+        "  '(n2' == 'hrm'"
     );
   });
 
@@ -102,15 +94,12 @@ describe("forall", () => {
             })
         ),
       "to error",
-      "Found an error after 1 iteration, 12 additional errors found.\n" +
+      "Found an error after 1 iteration, 10 additional errors found.\n" +
         "counterexample:\n" +
         "\n" +
-        "  Generated input: 'lH#', ')1n'\n" +
+        "  Generated input: '(n2', 'hrm'\n" +
         "  with: string({ min: 3, max: 30 }), string({ min: 3, max: 30 })\n" +
         "\n" +
-        "  'lH#' == ')1n'\n" +
-        "\n" +
-        "  -lH#\n" +
-        "  +)1n"
+        "  '(n2' == 'hrm'"
     ));
 });
