@@ -1,4 +1,4 @@
-/*global forall:true*/ //eslint-disable-line no-unused-vars
+/* global forall:true */ // eslint-disable-line no-unused-vars
 const unchecked = require("./src/index");
 unchecked.preferredWidth = 80;
 
