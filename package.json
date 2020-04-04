@@ -8,7 +8,7 @@
   "main": "./lib/index.js",
   "scripts": {
     "build": "babel --out-dir lib --quiet src",
-    "lint": "eslint .",
+    "lint": "eslint . && prettier --check '**/*.{js,md}'",
     "lint-staged": "lint-staged",
     "prepare": "npm run build",
     "test": "mocha test README.md"
