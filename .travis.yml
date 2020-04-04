@@ -1,5 +1,15 @@
 language: node_js
 node_js:
-   - "8"
-   - "9"
-   - "10"
+   - 8
+   - 9
+   - 10
+   - 12
+   - node
+
+matrix:
+  include:
+    - name: Lint
+      node_js: 12
+      script: npm run lint
+
+script: npm test
