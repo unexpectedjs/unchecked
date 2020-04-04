@@ -32,12 +32,12 @@ $ npm install --save-dev unchecked chance-generators
 and require the forall function from `unchecked`:
 
 <!--unexpected-markdown evaluate:false-->
+
 ```js
-const { forall } = require('unchecked');
+const { forall } = require("unchecked");
 ```
 
 ## Usage
-
 
 Let's imagine we wanted to sort arrays of numbers using this function:
 
@@ -50,27 +50,24 @@ Then we could write a test to ensure the that the resulting array is sorted.
 First we need a way to check if the array is sorted:
 
 ```js
-const isSorted = array =>
-  array.every((x, i) => array.slice(i).every(y => x <= y));
+const isSorted = (array) =>
+  array.every((x, i) => array.slice(i).every((y) => x <= y));
 ```
 
 Now we are ready to write the tests:
 
 ```js
-const assert = require('assert');
-const util = require('util');
-const { array, integer } = require('chance-generators');
+const assert = require("assert");
+const util = require("util");
+const { array, integer } = require("chance-generators");
 
 // generate arrays of integers with length varying from 0 to 30
 const numbers = array(integer);
 
-forall(array(integer), numbers => {
+forall(array(integer), (numbers) => {
   const sorted = sort(numbers);
 
-  assert(
-    isSorted(sorted),
-    `expected ${util.inspect(sorted)} to be sorted`
-  );
+  assert(isSorted(sorted), `expected ${util.inspect(sorted)} to be sorted`);
 });
 ```
 
@@ -95,13 +92,10 @@ const sortNumbers = (arr) => [].concat(arr).sort((a, b) => a - b);
 ```
 
 ```js
-forall(array(integer), numbers => {
+forall(array(integer), (numbers) => {
   const sorted = sortNumbers(numbers);
 
-  assert(
-    isSorted(sorted),
-    `expected ${util.inspect(sorted)} to be sorted`
-  );
+  assert(isSorted(sorted), `expected ${util.inspect(sorted)} to be sorted`);
 });
 ```
 
@@ -111,37 +105,38 @@ Support for asynchronous testing by returning a promise from the subject
 function:
 
 <!--unexpected-markdown async:true-->
-```js
-const { PassThrough } = require('stream');
-const zlib = require('zlib');
-const getStream = require('get-stream');
-const { string } = require('chance-generators');
 
-return forall(string, text => {
+```js
+const { PassThrough } = require("stream");
+const zlib = require("zlib");
+const getStream = require("get-stream");
+const { string } = require("chance-generators");
+
+return forall(string, (text) => {
   const inputStream = new PassThrough();
-  
+
   inputStream.write(text);
   inputStream.end();
-  
+
   const gzip = zlib.createGzip();
   const gunzip = zlib.createGunzip();
-  
+
   inputStream.pipe(gzip).pipe(gunzip);
 
   return getStream(gunzip).then((transformed) => {
     assert.equal(transformed, text);
-  })
+  });
 });
 ```
 
 ## Options
 
-* `maxIterations` (default 300): the number of iterations that the subject
+- `maxIterations` (default 300): the number of iterations that the subject
   function it ran when no errors occur. You can control the default for this
   option by setting the environment variable `UNCHECKED_MAX_ITERATIONS`.
-* `maxErrorIterations` (default 1000): the number of iterations unexpected-check
+- `maxErrorIterations` (default 1000): the number of iterations unexpected-check
   can use to find a better error when an error occurs.
-* `maxErrors` (default 201): the number of found errors before stopping the input
+- `maxErrors` (default 201): the number of found errors before stopping the input
   shrinking process.
 
 ```js
@@ -150,15 +145,12 @@ forall(
   {
     maxIterations: 100,
     maxErrorIterations: 100,
-    maxErrors: 10
+    maxErrors: 10,
   },
-  numbers => {
+  (numbers) => {
     const sorted = sort(numbers);
 
-    assert(
-      isSorted(sorted),
-      `expected ${util.inspect(sorted)} to be sorted`
-    );
+    assert(isSorted(sorted), `expected ${util.inspect(sorted)} to be sorted`);
   }
 );
 ```

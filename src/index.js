@@ -19,7 +19,7 @@ const forall = (...args) => {
 
   return expect(test, "to be valid for all", {
     ...options,
-    generators: args
+    generators: args,
   });
 };
 
@@ -30,5 +30,5 @@ module.exports = {
   set preferredWidth(value) {
     expect.output.preferredWidth = value;
   },
-  forall
+  forall,
 };

@@ -4,8 +4,8 @@ const { forall } = require("../src/");
 const assert = require("assert");
 const util = require("util");
 
-const isSorted = array =>
-  array.every((x, i) => array.slice(i).every(y => x <= y));
+const isSorted = (array) =>
+  array.every((x, i) => array.slice(i).every((y) => x <= y));
 
 const sort = (arr, cmp) => [].concat(arr).sort(cmp);
 
@@ -13,7 +13,7 @@ describe("forall", () => {
   it("fails with an informative error message", () => {
     expect(
       () => {
-        forall(array(integer), numbers => {
+        forall(array(integer), (numbers) => {
           const sorted = sort(numbers);
 
           assert.equal(
@@ -42,7 +42,7 @@ describe("forall", () => {
   });
 
   it("succeeds when the body does not throw", () => {
-    forall(array(integer), numbers => {
+    forall(array(integer), (numbers) => {
       const sorted = sort(numbers, (a, b) => a - b);
 
       assert.equal(
