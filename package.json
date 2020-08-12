@@ -4,8 +4,11 @@
   "license": "MIT",
   "author": "Sune Simonsen",
   "repository": "git://github.com/unexpectedjs/unchecked.git",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "main": "./lib/index.js",
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "build": "babel --out-dir lib --quiet src",
     "lint": "eslint . && prettier --check '**/*.{js,md}'",
@@ -22,11 +25,11 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "chance-generators": "^3.5.0",
-    "eslint": "^6.0.0",
+    "eslint": "^7.0.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-mocha": "^6.3.0",
+    "eslint-plugin-mocha": "^8.0.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-promise": "^4.2.1",
@@ -51,12 +54,10 @@
   "lint-staged": {
     "*.js": [
       "eslint",
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ],
     "package.json": [
-      "prettier-package-json --write",
-      "git add"
+      "prettier-package-json --write"
     ]
   },
   "pre-commit": "lint-staged"
