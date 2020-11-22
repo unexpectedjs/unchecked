@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "unexpected": "^11.0.0",
-    "unexpected-check": "^2.4.1"
+    "unexpected-check": "^3.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
