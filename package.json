@@ -1,10 +1,10 @@
 {
   "name": "unchecked",
+  "version": "2.0.0",
   "description": "A property based test executor",
   "license": "MIT",
   "author": "Sune Simonsen",
   "repository": "git://github.com/unexpectedjs/unchecked.git",
-  "version": "2.0.0",
   "main": "./lib/index.js",
   "files": [
     "lib"
@@ -17,7 +17,6 @@
     "test": "mocha test README.md"
   },
   "dependencies": {
-    "eslint-plugin-n": "^15.1.0",
     "unexpected": "^12.0.0",
     "unexpected-check": "^3.0.0"
   },
@@ -31,6 +30,7 @@
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-mocha": "^10.0.1",
+    "eslint-plugin-n": "^15.1.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.19.0",
