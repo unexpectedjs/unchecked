@@ -17,6 +17,7 @@
     "test": "mocha test README.md"
   },
   "dependencies": {
+    "eslint-plugin-n": "^15.1.0",
     "unexpected": "^12.0.0",
     "unexpected-check": "^3.0.0"
   },
@@ -27,10 +28,9 @@
     "chance-generators": "^3.5.0",
     "eslint": "^8.6.0",
     "eslint-config-prettier": "^8.2.0",
-    "eslint-config-standard": "^16.0.0",
+    "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-mocha": "^10.0.1",
-    "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.19.0",
